@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a forum application partially built based on (Laravel 5.6)[https://laravel.com/].
+This is a forum application partially built based on [Laravel 5.6](https://laravel.com/).
 We would like you to help improve this application by completing the tasks outlined below.
 
 ### How to complete the test
