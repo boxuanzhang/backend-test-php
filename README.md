@@ -241,7 +241,8 @@ Sections contain topics. Each section breaks the forum up into logically grouped
 
 #### Topics
 
-Topics group together messages within a section.  An example topic in the "Crypto" section might be "I just mortgaged my house and now BTC is only with 3k".
+Topics group together messages within a section.  An example topic in the "Crypto" section might be "I just mortgaged 
+my house and now BTC is only worth 3k :scream:".
 
 - List of topics: `GET /api/v1/topics`
 - Retrieve topic: `GET /api/v1/topics/{id}`
@@ -266,7 +267,7 @@ Users are the entities within the system that can create messages, and topics.
 
 - List of users: `GET /api/v1/users`
 - Retrieve user: `GET /api/v1/users/{id}`
-- Create a new user: `POST /api/v1/users`
+- Create/register a new user: `POST /api/v1/users`
 - Update a user: `PATCH /api/v1/users/{id}`
 - Delete a user: `DELETE /api/v1/users/{id}`
 - Retrieve user profile: `GET /api/v1/users/{id}/profile`
