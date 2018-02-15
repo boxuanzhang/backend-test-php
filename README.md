@@ -160,11 +160,14 @@ Ok so there's a couple of big problems with the messages controller.
 #### Task 15 - Document the messages controller
 
 Our frontend dev's keep asking us how to use the API for `Api\MessageController`, but we don't have any documentation :(
+In an ideal world, we would have documented all of our endpoints before we even began coding.
 Help us by documenting this controller, including the available input.
 
 * We like the OpenAPI 3.0 spec (swagger)
 * You can use another spec/format but if so please explain the advantages.
 * You only need to document the one controller.
+
+Don't worry about the other controllers for now.
 
 #### Task 16 - Improve database indexes
 
