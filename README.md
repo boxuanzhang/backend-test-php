@@ -62,10 +62,13 @@ Our controller methods currently return our api output via Model->toArray() and 
 
 Note there are packages available that can help you with this, or you can roll your own solution.
 
-#### Task 6 - Add images to this resource
+#### Task 6 - Add user avatars
 
-TODO
+Our UX team has made an update, and they'd like to add avatars to user profiles.  Please implement the ability for our users to have a single avatar image:
 
+- Extend models and migrations, and seeds
+- Create appropriate methods or controllers
+- Write appropriate test to ensure that you can fetch and update an avatar for a user
 
 #### Task 7 - Add a new endpoint which does X
 
