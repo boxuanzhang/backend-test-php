@@ -166,6 +166,7 @@ Help us by documenting this controller, including the available input.
 * We like the OpenAPI 3.0 spec (swagger)
 * You can use another spec/format but if so please explain the advantages.
 * You only need to document the one controller.
+* Put your documentation into the `docs/` folder
 
 Don't worry about the other controllers for now.
 
