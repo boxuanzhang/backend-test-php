@@ -11,7 +11,7 @@ We would like you to help improve this application by completing the tasks outli
 * Create branches or work on master (up to you).
 * Complete the tasks as outlined below.
 * Feel free to add any of your own improvements, be sure to identify them in your commit messages.
-* Make sure you replace this README with your own, add any suggestions to developers for getting started.
+* Make sure you replace this README with your own, add any suggestions to developers for getting started (see final task).
 * Submit a PR once you've completed your work.
 
 We would appreciate you indicating which tasks you are addressing in your commits or PR messages.
@@ -20,13 +20,19 @@ Other hints: feel free to use community packages, you don't have to write everyt
 
 ### Tasks
 
-#### Task 1 - Add authentication 
+#### Task 1 - Add seeds
+
+Currently none of our models have seeds, this makes it hard to test the application and for our frontend team to work on the interface.  Please add seeds for the following models:
+
+TODO
+
+#### Task 2 - Add authentication 
 
 Our API currently does not have any authentication defined.  Please protect the following routes with an auth scheme that requires a valid API key.
 
 TODO: List routes, more explanation
 
-#### Task 2 - Improve database performance
+#### Task 3 - Improve database performance
 
 Currently none of the database tables have any indexes defined. 
 
@@ -35,7 +41,7 @@ Currently none of the database tables have any indexes defined.
 
 TODO
 
-#### Task 3 - Refactor controller
+#### Task 4 - Refactor controller
 
 The controller method `App\Http\Controllers\Api\SomeController::someMethod()` has been put together by one of our developers in a hurry, but now it's time to refactor it into something more readable and maintable.
 
@@ -47,7 +53,7 @@ The controller method `App\Http\Controllers\Api\SomeController::someMethod()` ha
 
 TODO
 
-#### Task 4 - Transform output
+#### Task 5 - Transform output
 
 Our controller methods currently return our api output via Model->toArray() and Collection->toArray(), but it's becoming a problem because every time we update our model properties we break what is expected from our API.  Also, we would like all our dates to be returned in UTC format.
 
@@ -56,16 +62,14 @@ Our controller methods currently return our api output via Model->toArray() and 
 
 Note there are packages available that can help you with this, or you can roll your own solution.
 
-#### Task 5 - Add images to this resource
+#### Task 6 - Add images to this resource
 
 TODO
 
 
-#### Task 6 - Add a new endpoint which does X
+#### Task 7 - Add a new endpoint which does X
 
 TODO
-
-#### Task 7 - Refactor pivot table into a regular model
 
 #### Task 8 - Add not null constraint
 
@@ -104,6 +108,11 @@ We've been having some trouble reproducing some issues between staging and dev. 
 * Explain the benefits of using docker
 
 TODO
+
+#### Task 12 - Write a new README
+
+Now that you've completed the tasks, please replace this README with a suitable one for the project.
+It should provide a good overview of your project, how it should be installed and configured for DEV and PROD and an explanation of anything that is currently incomplete. Perhaps some ideas for what could be improved in the future.
 
 ## Installation
 
