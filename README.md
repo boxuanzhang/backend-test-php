@@ -1,9 +1,14 @@
 # REX Backend Test
 
-## Overview
+## Overview 
 
-This is a forum application partially built based on [Laravel 5.6](https://laravel.com/).
+The Good Forum (tm) is an API application built based on [Laravel 5.6](https://laravel.com/).
+It was hastily built by some Junior developers, and it needs a little bit of love.
 We would like you to help improve this application by completing the tasks outlined below.
+
+This API will be utilised by a React frontend. 
+
+![Mockup of Forum Messages](resources/assets/img/mockup-forum-messages.png)
 
 ### How to complete the test
 
@@ -22,97 +27,161 @@ Other hints: feel free to use community packages, you don't have to write everyt
 
 #### Task 1 - Add seeds
 
-Currently none of our models have seeds, this makes it hard to test the application and for our frontend team to work on the interface.  Please add seeds for the following models:
+Currently our seeds are incomplete. This makes it hard to test the application and for our frontend team to work on the 
+interface.  Please add seeds for the following models:
 
-TODO
+- Sections
+- Topics
+- Messages
+
+It would be great of there were some message seeds demonstrating the nested parent_id relationship that messages
+within a topic can have.
 
 #### Task 2 - Add authentication 
 
-Our API currently does not have any authentication defined.  Please protect the following routes with an auth scheme that requires a valid API key.
+Our API currently does not have any authentication defined.  Please protect the following routes with an auth scheme 
+that requires a valid API key.
 
-TODO: List routes, more explanation
+- Protect all routes with an API key that identifies the `User`
+- The route for creating a new user probably shouldn't require an API key since that will make it quite hard to register.
 
-#### Task 3 - Improve database performance
+#### Task 3 - Refactor the thread controller
 
-Currently none of the database tables have any indexes defined. 
-
-* Identify and define any indexes
-* Explain how you measured the performance improvements
-
-TODO
-
-#### Task 4 - Refactor controller
-
-The controller method `App\Http\Controllers\Api\SomeController::someMethod()` has been put together by one of our developers in a hurry, but now it's time to refactor it into something more readable and maintable.
+The controller  `App\Http\Controllers\Api\TopicThreadController` has been put together by one of our 
+developers in a hurry.  This controller returns a nested list of messages for a particular topic but now it's time to 
+refactor it into something more readable and maintable.
 
 * Write a test that shows that the current controller works
-* Refactor controller
+* Refactor controller for readability / perfomance / etc.
 * Create any methods and/or classes you deem necessary
 * Improve any logic
 * Refine the test (if necessary)
 
-TODO
+#### Task 4 - Transform output
 
-#### Task 5 - Transform output
+Our controller methods currently return our api output by just returning the model directly, but it's becoming a problem 
+because every time we update our model properties we break what is expected from our API.  Also, we would like all our 
+dates to be returned in UTC format.
 
-Our controller methods currently return our api output via Model->toArray() and Collection->toArray(), but it's becoming a problem because every time we update our model properties we break what is expected from our API.  Also, we would like all our dates to be returned in UTC format.
-
-* Change the methods in `SomeOtherController` to transform the output
-* Ensure all dates are returned in UTC format
+* Change the methods in `Api\UserProfileController` and `Api\MessageController` to transform the output resources.
+* Only return the resource fields necessary.
+* Ensure all dates are output in UTC format.
+* Write a test to ensure that it outputs what you expect it to.
 
 Note there are packages available that can help you with this, or you can roll your own solution.
 
+#### Task 5 - Add total messages to the Section and Topic endpoints
+
+Those damn UI designers just sent us another update.  When listing the sections and topics they want to be able
+to show the number of messages contained within:
+
+- Extend the Section and Topic controllers to include a `total_messages` field in their output.
+
 #### Task 6 - Add user avatars
 
-Our UX team has made an update, and they'd like to add avatars to user profiles.  Please implement the ability for our users to have a single avatar image:
+Our UX team has made an update, and they'd like us to add avatars to `user` profiles so that the design 'pops'. 
+Please implement the ability for our users to have a single OPTIONAL avatar image on their profile:
 
-- Extend models and migrations, and seeds
-- Create appropriate methods or controllers
-- Write appropriate test to ensure that you can fetch and update an avatar for a user
+- Extend models and migrations, and seeds.
+- Create appropriate methods or controllers.
+- Write appropriate test to ensure that you can retrieve and update an avatar for a user.
+- Would be good if the image storage was flexible enough to change to an s3 bucket in the future.
+- Update any resource transformations so that the user profile includes the avatar URL (if an avatar is set).
 
-#### Task 7 - Add a new endpoint which does X
+#### Task 7 - Allow topic owners to highlight interesting messages
 
-TODO
+Topic owners want a way to be able to "highlight" interesting messages within the thread.
 
-#### Task 8 - Add not null constraint
+Update the appropriate endpoint to:
 
-The column in `tableX` currently permits null values.  Unfortunately, we already have 100 records, and our system is in production!
+- Allow user that owns a topic should be able to "highlight a message" `is_highlight`
+
+#### Task 8 - Add moderators
+
+We'd like to empower some of our users to do all the heavy-lifting for us. In order to do this, we will need to be
+able to set various users as moderators. 
+
+The role of those users will be to:
+
+- Approve new topics - by default new topics should now be not approved by default, and not show in any list until 
+they are approved.
+- Flag bad messages - add the ability to flag a bad message so it is no longer
+
+#### Task 9 - Auto-approve new topics
+
+Our forum is on fire, and now that topics require approval, we're worried that some moderators are a bit lazy and wont
+be able to keep up with all the new topics.  
+
+- Setup a command that can be added to our server cron that will auto-approve topics after 3 days if they have
+not already been approved.
+
+#### Task 10 - Fix the users endpoints
+
+It looks like we've got a few role/security related issues we need you to clean up in the users endpoints.
+
+- Only Authed users can update their own account.
+- Only moderators can update other user's accounts.
+- Only moderators can delete accounts.
+- When you delete a user, all of that user's topics and messages should also be deleted, or flagged somehow.
+
+#### Task 11 - Add a new endpoint which gives you all the messages for a topic
+
+We already have a global endpoint for fetching messages, but we need to get them for a particular topic ID.
+
+- Create a new endpoint which returns only messages for a given topic.
+- Allow ordering by date, or alphabetically.
+
+#### Task 12 - Add not null constraint
+
+The `nickname` column in the `users` currently permits null values.  Unfortunately, we already have 50 users. Some of
+them will have null values - and our and our forum is in production!
 
 * Update the model(s)
-* Update the database migration(s)
-* Handle migration of existing data
+* Add appropriate database migration(s)
+* Handle migration of existing data through the appropriate means
 * Update any data transformations for the resource
 
-TODO
-TODO: We need to fake a 100 records
+#### Task 13 - Add pagination to the messages controller
 
-#### Task 9 -  Identify the issue with this section of code
+Wwoww, we're so popular right nowQ  The list of messages returned from the GET `/api/v1/messages` endpoint is pretty
+big. 
 
-It looks like there's a problem in one of our endpoints. 
+- Implement pagination on the messages controller.
+- The response should include the pagination details for fetching the next page.
 
-* Identify the issue
-* Update the code
+#### Task 14 - Fix the messages controller
 
-TODO
+Ok so there's a couple of big problems with the messages controller.
 
-#### Task 10 - Document a controller
+- The validation is pretty bad
+- You shouldn't be able to link a message to a parent_id that doesn't share the same topic_id
+- We need a test to ensure that all this is working
 
-One of our customers has asked how to use the API for `some resource`, but we don't have any documentation :(
+#### Task 15 - Document the messages controller
+
+Our frontend dev's keep asking us how to use the API for `Api\MessageController`, but we don't have any documentation :(
+Help us by documenting this controller, including the available input.
 
 * We like the OpenAPI 3.0 spec (swagger)
-* You can use another spec/format but if soplease explain the advantages.
+* You can use another spec/format but if so please explain the advantages.
 * You only need to document the one controller.
 
-#### Task 11 - Dockerize this application
+#### Task 16 - Improve database indexes
+
+Currently none of the database tables have any indexes defined. 
+
+* Add indexes where appropriate (hint: sections, messages, topics)
+* Explain how you measured the usefulness of these indexes
+* Don't add indexes that wont be used though
+
+#### Task 17 - Dockerize this application
 
 We've been having some trouble reproducing some issues between staging and dev.  The developer of this application, has appropriately told support "Works for me", but we think there might be a better way:
 
 * Dockerize this application
-* Explain the benefits of using docker
+* Include instructions how to fire up your application
 
-TODO
-
-#### Task 12 - Write a new README
+#### Task 18 - Write a new README
 
 Now that you've completed the tasks, please replace this README with a suitable one for the project.
 It should provide a good overview of your project, how it should be installed and configured for DEV and PROD and an explanation of anything that is currently incomplete. Perhaps some ideas for what could be improved in the future.

@@ -13,14 +13,8 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\Models\User::class, function (Faker $faker) {
-    $setNickname = random_int(0, 2);
+$factory->define(App\Models\Topic::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'nickname' => $setNickname ? $faker->userName : null,
-        'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
-        'remember_token' => str_random(10),
-        'bio' => $faker->text,
+        // TODO
     ];
 });
