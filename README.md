@@ -225,3 +225,50 @@ php artisan serve
 
 Application available from: `http://localhost/`
 
+### Access the API
+
+The API is RESTful:
+
+#### Sections
+
+Sections contain topics. Each section breaks the forum up into logically grouped areas. Eg. the "Crypto" section.
+
+- List of sections: `GET http://localhost/api/v1/sections`
+- Retrieve section: `GET http://localhost/api/v1/sections/{id}`
+- Create a new section: `POST http://localhost/api/v1/sections`
+- Update a section: `PATCH http://localhost/api/v1/sections/{id}`
+- Delete a section: `DELETE http://localhost/api/v1/sections/{id}`
+
+#### Topics
+
+Topics group together messages within a section.  An example topic in the "Crypto" section might be "I just mortgaged my house and now BTC is only with 3k".
+
+- List of topics: `GET http://localhost/api/v1/topics`
+- Retrieve topic: `GET http://localhost/api/v1/topics/{id}`
+- Create a new topic: `POST http://localhost/api/v1/topics`
+- Update a topic: `PATCH http://localhost/api/v1/topics/{id}`
+- Delete a topic: `DELETE http://localhost/api/v1/topics/{id}`
+- Get topic thread: `GET http://localhost/api/v1/topics/{id}/thread`
+
+#### Messages
+
+Messages are created within a topic and may have a parent_id for nested relationships.
+
+- List of messages: `GET http://localhost/api/v1/messages`
+- Retrieve message: `GET http://localhost/api/v1/messages/{id}`
+- Create a new message: `POST http://localhost/api/v1/messages`
+- Update a message: `PATCH http://localhost/api/v1/messages/{id}`
+- Delete a message: `DELETE http://localhost/api/v1/messages/{id}`
+
+#### Users
+
+Users are the entities within the system that can create messages, and topics.
+
+- List of users: `GET http://localhost/api/v1/users`
+- Retrieve user: `GET http://localhost/api/v1/users/{id}`
+- Create a new user: `POST http://localhost/api/v1/users`
+- Update a user: `PATCH http://localhost/api/v1/users/{id}`
+- Delete a user: `DELETE http://localhost/api/v1/users/{id}`
+- Retrieve user profile: `GET http://localhost/api/v1/users/{id}/profile`
+- Update user profile: `PATCH http://localhost/api/v1/users/{id}/profile`
+
