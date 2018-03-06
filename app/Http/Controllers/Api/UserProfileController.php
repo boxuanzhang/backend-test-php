@@ -50,7 +50,7 @@ class UserProfileController extends Controller
 	public function update(Request $request, User $user)
 	{
 		$this->validate($request, [
-			'nickname' => 'required', // TODO: Check if unique
+			'nickname' => 'required|unique:users', // TODO: Check if unique
 			'bio'      => 'required',
 		]);
 
