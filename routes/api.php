@@ -11,8 +11,7 @@
 */
 
 // accessing the route... except maybe the route for registering ...
-//Route::group(['namespace' => 'Api', 'prefix' => 'v1', 'middleware' => ['auth:api']], function() {
-Route::group(['namespace' => 'Api', 'prefix' => 'v1'], function() {
+Route::group(['namespace' => 'Api', 'prefix' => 'v1', 'middleware' => ['auth:api']], function() {
 	// Sections
 	Route::apiResource('sections', 'SectionController');
 
