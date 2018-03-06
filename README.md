@@ -42,8 +42,8 @@ within a topic can have. :white_check_mark:
 Our API currently does not have any authentication defined.  Please protect the following routes with an auth scheme 
 that requires a valid API key.
 
-- Protect all routes with an API key that identifies the `User`
-- The route for creating a new user probably shouldn't require an API key since that will make it quite hard to register.
+- Protect all routes with an API key that identifies the `User`  :white_check_mark:
+- The route for creating a new user probably shouldn't require an API key since that will make it quite hard to register.  :white_check_mark:
 
 #### Task 3 - Refactor the thread controller
 

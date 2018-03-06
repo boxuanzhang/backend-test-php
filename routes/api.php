@@ -26,5 +26,12 @@ Route::group(['namespace' => 'Api', 'prefix' => 'v1', 'middleware' => ['auth:api
 	// Users
 	Route::get('/users/{user}/profile', 'UserProfileController@show');
 	Route::patch('/users/{user}/profile', 'UserProfileController@update');
-	Route::apiResource('users', 'UserController');
+
+	Route::get('/users/{user}', 'UserController@show');
+	Route::patch('/users/{user}', 'UserController@update');
+	Route::delete('/users/{user}', 'UserController@destroy');
+});
+
+Route::group(['namespace' => 'Api', 'prefix' => 'v1'], function() {
+	Route::post('/users/{user}', 'UserController@store');
 });
