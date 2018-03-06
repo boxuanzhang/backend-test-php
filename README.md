@@ -182,8 +182,9 @@ Currently none of the database tables have any indexes defined.
 
 We've been having some trouble reproducing some issues between staging and dev.  The developer of this application, has appropriately told support "Works for me", but we think there might be a better way:
 
-* Dockerize this application
-* Include instructions how to fire up your application
+* Dockerize this application :white_check_mark:
+* Include instructions how to fire up your application :white_check_mark:
+
 
 #### Task 18 - Write a new README
 
@@ -211,10 +212,16 @@ Edit the `.env` file to update database credentials
 composer install
 ```
 
-### Run tests
+### Migrations
 
 ```bash
-composer tests
+php artisan migrate 
+```
+
+### Application Key
+
+```bash
+php artisan key:generate
 ```
 
 ### Run application
@@ -223,6 +230,19 @@ composer tests
 php artisan serve
 ```
 
+### Docker Instruction
+
+```
+Enter the laradock folder and rename env-example to .env.
+
+cp env-example .env
+
+docker-compose up -d nginx mysql
+
+To run php artisan in docker
+
+docker-compose exec workspace bash
+```
 Application available from: `http://localhost/`
 
 ### Access the API
