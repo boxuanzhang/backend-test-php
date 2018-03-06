@@ -27,7 +27,7 @@ Other hints: feel free to use community packages, you don't have to write everyt
 
 * Due to 4 hours time limitation many things have to finish in rush especially like unitTest. I have just finished some basic test cases.
 * Due to time limitation, got documentation task left.
-* Need to refinement design pattern like we could use service design pattern for uploading files.
+* Need to refine design pattern like we could use service design pattern for uploading files.
 
 ### Tasks
 
