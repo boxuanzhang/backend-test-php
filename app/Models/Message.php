@@ -27,6 +27,14 @@ class Message extends Model
 	}
 
 	/**
+	 * @return BelongsTo
+	 */
+	public function topic(): BelongsTo
+	{
+		return $this->belongsTo(Topic::class, 'topic_id');
+	}
+
+	/**
 	 * @param $query
 	 * @return mixed
 	 */

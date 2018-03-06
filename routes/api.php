@@ -31,6 +31,15 @@ Route::group(['namespace' => 'Api', 'prefix' => 'v1'], function() {
 	Route::get('/users/{user}', 'UserController@show');
 	Route::patch('/users/{user}', 'UserController@update');
 	Route::delete('/users/{user}', 'UserController@destroy');
+
+	//For highlighting message in topic
+	Route::post('/messages/{id}/highlight', 'MessageController@postHighlight');
+
+	//For approving topic
+	Route::post('/topics/approve/{topic}', 'TopicController@postApprove');
+
+	//For marking bad message
+	Route::post('/messages/{id}/mark-bad', 'MessageController@postMarkBadMessage');
 });
 
 Route::group(['namespace' => 'Api', 'prefix' => 'v1'], function() {

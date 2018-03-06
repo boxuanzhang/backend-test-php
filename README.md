@@ -63,10 +63,10 @@ Our controller methods currently return our api output by just returning the mod
 because every time we update our model properties we break what is expected from our API.  Also, we would like all our 
 dates to be returned in UTC format.
 
-* Change the methods in `Api\UserProfileController` and `Api\MessageController` to transform the output resources.
-* Only return the resource fields necessary.
-* Ensure all dates are output in UTC format.
-* Write a test to ensure that it outputs what you expect it to.
+* Change the methods in `Api\UserProfileController` and `Api\MessageController` to transform the output resources. :white_check_mark:
+* Only return the resource fields necessary. :white_check_mark:
+* Ensure all dates are output in UTC format. :white_check_mark:
+* Write a test to ensure that it outputs what you expect it to. :white_check_mark:
 
 Note there are packages available that can help you with this, or you can roll your own solution.
 
@@ -94,7 +94,7 @@ Topic owners want a way to be able to "highlight" interesting messages within th
 
 Update the appropriate endpoint to:
 
-- Allow user that owns a topic should be able to "highlight a message" `is_highlight`
+- Allow user that owns a topic should be able to "highlight a message" `is_highlight` :white_check_mark:
 
 #### Task 8 - Add moderators
 
@@ -104,8 +104,8 @@ able to set various users as moderators.
 The role of those users will be to:
 
 - Approve new topics - by default new topics should now be not approved by default, and not show in any list until 
-they are approved.
-- Flag bad messages - add the ability to flag a bad message so it is no longer
+they are approved. :white_check_mark:
+- Flag bad messages - add the ability to flag a bad message so it is no longer :white_check_mark:
 
 #### Task 9 - Auto-approve new topics
 
@@ -128,8 +128,8 @@ It looks like we've got a few role/security related issues we need you to clean 
 
 We already have a global endpoint for fetching messages, but we need to get them for a particular topic ID.
 
-- Create a new endpoint which returns only messages for a given topic.
-- Allow ordering by date, or alphabetically.
+- Create a new endpoint which returns only messages for a given topic. :white_check_mark:
+- Allow ordering by date, or alphabetically. :white_check_mark:
 
 #### Task 12 - Add not null constraint
 
@@ -146,16 +146,16 @@ them will have null values - and our and our forum is in production!
 Wwoww, we're so popular right nowQ  The list of messages returned from the GET `/api/v1/messages` endpoint is pretty
 big. 
 
-- Implement pagination on the messages controller.
-- The response should include the pagination details for fetching the next page.
+- Implement pagination on the messages controller. :white_check_mark:
+- The response should include the pagination details for fetching the next page. :white_check_mark:
 
 #### Task 14 - Fix the messages controller
 
 Ok so there's a couple of big problems with the messages controller.
 
-- The validation is pretty bad
-- You shouldn't be able to link a message to a parent_id that doesn't share the same topic_id
-- We need a test to ensure that all this is working
+- The validation is pretty bad :white_check_mark:
+- You shouldn't be able to link a message to a parent_id that doesn't share the same topic_id :white_check_mark:
+- We need a test to ensure that all this is working :white_check_mark:
 
 #### Task 15 - Document the messages controller
 
