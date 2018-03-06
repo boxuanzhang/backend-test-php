@@ -75,7 +75,7 @@ Note there are packages available that can help you with this, or you can roll y
 Those damn UI designers just sent us another update.  When listing the sections and topics they want to be able
 to show the number of messages contained within:
 
-- Extend the Section and Topic controllers to include a `total_messages` field in their output.
+- Extend the Section and Topic controllers to include a `total_messages` field in their output. :white_check_mark:
 
 #### Task 6 - Add user avatars
 
