@@ -30,12 +30,12 @@ Other hints: feel free to use community packages, you don't have to write everyt
 Currently our seeds are incomplete. This makes it hard to test the application and for our frontend team to work on the 
 interface.  Please add seeds for the following models:
 
-- Sections
-- Topics
-- Messages
+- Sections :white_check_mark:
+- Topics :white_check_mark:
+- Messages :white_check_mark:
 
 It would be great of there were some message seeds demonstrating the nested parent_id relationship that messages
-within a topic can have.
+within a topic can have. :white_check_mark:
 
 #### Task 2 - Add authentication 
 
