@@ -13,8 +13,11 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\Models\Topic::class, function (Faker $faker) {
-    return [
-        // TODO
-    ];
+$factory->define(App\Models\Topic::class, function(Faker $faker) {
+	return [
+		'section_id' => factory(\App\Models\Section::class)->create()->id,
+		'title'      => $faker->sentence,
+		'body'       => $faker->paragraph,
+		'user_id'    => factory(\App\Models\User::class)->create()->id,
+	];
 });

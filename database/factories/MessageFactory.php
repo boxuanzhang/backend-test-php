@@ -13,8 +13,12 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\Models\Message::class, function (Faker $faker) {
-    return [
-        // TODO
-    ];
+$factory->define(App\Models\Message::class, function(Faker $faker) {
+	$setIsHighlight = random_int(0, 2);
+
+	return [
+		'user_id'      => factory(\App\Models\User::class)->create()->id,
+		'body'         => $faker->paragraph,
+		'is_highlight' => $setIsHighlight ? true : false,
+	];
 });
