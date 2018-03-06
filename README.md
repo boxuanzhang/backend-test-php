@@ -113,7 +113,7 @@ Our forum is on fire, and now that topics require approval, we're worried that s
 be able to keep up with all the new topics.  
 
 - Setup a command that can be added to our server cron that will auto-approve topics after 3 days if they have
-not already been approved.
+not already been approved. :white_check_mark:
 
 #### Task 10 - Fix the users endpoints
 
