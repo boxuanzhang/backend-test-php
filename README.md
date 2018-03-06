@@ -136,10 +136,10 @@ We already have a global endpoint for fetching messages, but we need to get them
 The `nickname` column in the `users` currently permits null values.  Unfortunately, we already have 50 users. Some of
 them will have null values - and our and our forum is in production!
 
-* Update the model(s)
-* Add appropriate database migration(s)
-* Handle migration of existing data through the appropriate means
-* Update any data transformations for the resource
+* Update the model(s) :white_check_mark:
+* Add appropriate database migration(s) :white_check_mark:
+* Handle migration of existing data through the appropriate means :white_check_mark:
+* Update any data transformations for the resource :white_check_mark:
 
 #### Task 13 - Add pagination to the messages controller
 
@@ -174,9 +174,9 @@ Don't worry about the other controllers for now.
 
 Currently none of the database tables have any indexes defined. 
 
-* Add indexes where appropriate (hint: sections, messages, topics)
-* Explain how you measured the usefulness of these indexes
-* Don't add indexes that wont be used though
+* Add indexes where appropriate (hint: sections, messages, topics) :white_check_mark:
+* Explain how you measured the usefulness of these indexes :white_check_mark:
+* Don't add indexes that wont be used though :white_check_mark:
 
 #### Task 17 - Dockerize this application
 
