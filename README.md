@@ -51,11 +51,11 @@ The controller  `App\Http\Controllers\Api\TopicThreadController` has been put to
 developers in a hurry.  This controller returns a nested list of messages for a particular topic but now it's time to 
 refactor it into something more readable and maintable.
 
-* Write a test that shows that the current controller works
-* Refactor controller for readability / perfomance / etc.
-* Create any methods and/or classes you deem necessary
-* Improve any logic
-* Refine the test (if necessary)
+* Write a test that shows that the current controller works :white_check_mark:
+* Refactor controller for readability / perfomance / etc. :white_check_mark:
+* Create any methods and/or classes you deem necessary :white_check_mark:
+* Improve any logic :white_check_mark:
+* Refine the test (if necessary) :white_check_mark:
 
 #### Task 4 - Transform output
 
