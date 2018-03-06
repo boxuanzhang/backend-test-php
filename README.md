@@ -82,11 +82,11 @@ to show the number of messages contained within:
 Our UX team has made an update, and they'd like us to add avatars to `user` profiles so that the design 'pops'. 
 Please implement the ability for our users to have a single OPTIONAL avatar image on their profile:
 
-- Extend models and migrations, and seeds.
-- Create appropriate methods or controllers.
-- Write appropriate test to ensure that you can retrieve and update an avatar for a user.
-- Would be good if the image storage was flexible enough to change to an s3 bucket in the future.
-- Update any resource transformations so that the user profile includes the avatar URL (if an avatar is set).
+- Extend models and migrations, and seeds. :white_check_mark:
+- Create appropriate methods or controllers. :white_check_mark:
+- Write appropriate test to ensure that you can retrieve and update an avatar for a user. :white_check_mark:
+- Would be good if the image storage was flexible enough to change to an s3 bucket in the future. :white_check_mark:
+- Update any resource transformations so that the user profile includes the avatar URL (if an avatar is set). :white_check_mark:
 
 #### Task 7 - Allow topic owners to highlight interesting messages
 
@@ -188,8 +188,8 @@ We've been having some trouble reproducing some issues between staging and dev. 
 
 #### Task 18 - Write a new README
 
-Now that you've completed the tasks, please replace this README with a suitable one for the project.
-It should provide a good overview of your project, how it should be installed and configured for DEV and PROD and an explanation of anything that is currently incomplete. Perhaps some ideas for what could be improved in the future.
+Now that you've completed the tasks, please replace this README with a suitable one for the project. :white_check_mark:
+It should provide a good overview of your project, how it should be installed and configured for DEV and PROD and an explanation of anything that is currently incomplete. Perhaps some ideas for what could be improved in the future. :white_check_mark:
 
 ## Installation
 

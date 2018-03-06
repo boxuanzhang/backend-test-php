@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+/**
+ * Class User
+ * @package App\Models
+ */
 class User extends Authenticatable
 {
     use Notifiable;
@@ -33,13 +37,27 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    public function topics(): HasMany
+	/**
+	 * @return HasMany
+	 */
+	public function topics(): HasMany
     {
         return $this->hasMany(Topic::class);
     }
 
-    public function messages(): HasMany
+	/**
+	 * @return HasMany
+	 */
+	public function messages(): HasMany
     {
         return $this->hasMany(Message::class);
     }
+
+	/**
+	 * @return HasMany
+	 */
+	public function avatars(): HasMany
+	{
+		return $this->hasMany(Avatar::class);
+	}
 }

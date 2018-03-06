@@ -54,8 +54,10 @@ class MessageControllerTest extends TestCase
 
 		$this->actingAs($test_user, 'api');
 
+		$topic = factory(Topic::class)->create();
+
 		$test_message = factory(Message::class)->create([
-			'topic_id'  => random_int(0, 10),
+			'topic_id'  => $topic->id,
 			'parent_id' => 0,
 		]);
 
@@ -80,8 +82,10 @@ class MessageControllerTest extends TestCase
 		$me = factory(User::class)->create();
 		$this->actingAs($me, 'api');
 
+		$topic = factory(Topic::class)->create();
+
 		$this->ajaxPost('/api/v1/messages', [
-			'topic_id'     => random_int(0, 10),
+			'topic_id'     => $topic->id,
 			'body'         => str_random(10),
 			'parent_id'    => 0,
 			'is_highlight' => random_int(0, 2) ? true : false,

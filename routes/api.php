@@ -23,6 +23,8 @@ Route::group(['namespace' => 'Api', 'prefix' => 'v1'], function() {
 	Route::get('/topics/{topic}/thread', 'TopicThreadController@show');
 	Route::apiResource('topics', 'TopicController');
 
+	// Avatars
+	Route::apiResource('avatars', 'AvatarController');
 
 	// Users
 	Route::get('/users/{user}/profile', 'UserProfileController@show');

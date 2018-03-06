@@ -6,72 +6,83 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Collection
-     */
-    public function index()
-    {
-        return User::all();
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param User $user
-     * @return User
-     */
-    public function show(User $user)
-    {
-        return $user;
-    }
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return Collection
+	 */
+	public function index()
+	{
+		return User::all();
+	}
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return User
-     */
-    public function store(Request $request)
-    {
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param User $user
+	 * @return User
+	 */
+	public function show(User $user)
+	{
+		return $user;
+	}
 
-        return User::create($request->all());
-    }
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @param  \Illuminate\Http\Request $request
+	 * @return User
+	 */
+	public function store(Request $request)
+	{
+		$this->validate($request, [
+			'name'     => 'required',
+			'email'    => 'required|email',
+			'password' => 'required',
+		]);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @Todo Check only authed user or
-     * @param  \Illuminate\Http\Request $request
-     * @param  \App\Models\User      $user
-     * @return User
-     */
-    public function update(Request $request, User $user)
-    {
-        $user->update($request->all());
+		return User::create($request->all());
+	}
 
-        return $user->fresh();
-    }
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @Todo Check only authed user or
+	 * @param  \Illuminate\Http\Request $request
+	 * @param  \App\Models\User $user
+	 * @return User
+	 */
+	public function update(Request $request, User $user)
+	{
+		if (Auth::user()->id != $user->id && !Auth::user()->is_moderator) {
+			abort(401);
+		}
+		$user->update($request->all());
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @todo Check only authed user or moderator can delete this resource
-     * @todo We should delete the users
-     * @param  \App\Models\User $user
-     * @throws \Exception
-     */
-    public function destroy(User $user)
-    {
-        $user->delete();
-    }
+		return $user->fresh();
+	}
+
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @todo Check only authed user or moderator can delete this resource
+	 * @todo We should delete the users
+	 * @param  \App\Models\User $user
+	 * @throws \Exception
+	 */
+	public function destroy(User $user)
+	{
+		if (Auth::user()->id != $user->id && !Auth::user()->is_moderator) {
+			abort(401);
+		}
+
+		$user->topics()->delete();
+		$user->messages()->delete();
+		$user->delete();
+	}
 }
