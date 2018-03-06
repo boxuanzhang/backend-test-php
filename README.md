@@ -119,10 +119,10 @@ not already been approved. :white_check_mark:
 
 It looks like we've got a few role/security related issues we need you to clean up in the users endpoints.
 
-- Only Authed users can update their own account.
-- Only moderators can update other user's accounts.
-- Only moderators can delete accounts.
-- When you delete a user, all of that user's topics and messages should also be deleted, or flagged somehow.
+- Only Authed users can update their own account. :white_check_mark:
+- Only moderators can update other user's accounts. :white_check_mark:
+- Only moderators can delete accounts. :white_check_mark:
+- When you delete a user, all of that user's topics and messages should also be deleted, or flagged somehow. :white_check_mark:
 
 #### Task 11 - Add a new endpoint which gives you all the messages for a topic
 
