@@ -1,5 +1,3 @@
-# REX Backend Test
-
 ## Overview 
 
 The Good Forum (tm) is an API application built based on [Laravel 5.6](https://laravel.com/).
